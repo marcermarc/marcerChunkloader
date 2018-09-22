@@ -1,0 +1,9 @@
+AllowedActivationItems:
+- minecraft:heart_of_the_sea
+AllowedBaseBlocks:
+- minecraft:gold_block
+- minecraft:iron_block
+- minecraft:emerald_block
+- minecraft:diamond_block
+MaximumTier: 4
+DebugMode: false
