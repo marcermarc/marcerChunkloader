@@ -6,7 +6,7 @@
 
     <groupId>de.marcermarc.chunkloader</groupId>
     <artifactId>marcerChunkloader</artifactId>
-    <version>0.1.0-BETA</version>
+    <version>0.2.0-BETA</version>
 
     <distributionManagement>
         <repository>

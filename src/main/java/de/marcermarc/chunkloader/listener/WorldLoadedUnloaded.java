@@ -78,6 +78,8 @@ public class WorldLoadedUnloaded implements Listener {
 
         if (amount > 0) {
             event.getPlayer().sendMessage(Messages.getJoin(amount));
+
+
         }
     }
 

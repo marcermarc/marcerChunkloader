@@ -1,6 +1,7 @@
 package de.marcermarc.chunkloader.listener;
 
 import de.marcermarc.chunkloader.Messages;
+import de.marcermarc.chunkloader.Util;
 import de.marcermarc.chunkloader.controller.PluginController;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -59,6 +60,14 @@ public class ChunkloaderDeactivator implements Listener {
                 player.sendMessage(Messages.getChunkloaderDestroyed());
             } else {
                 block.getWorld().getNearbyEntities(block.getLocation(), 20, 20, 20).forEach(e -> e.sendMessage(Messages.getChunkloaderDestroyed()));
+                player = block.getWorld().getPlayers().get(0);
+            }
+
+            if (player != null) {
+                final Player p = player;
+
+                Util.forceloadRemoveAll(player);
+                controller.getWorld(block.getWorld()).getLoadedChunks().getLoadedChunks().forEach(c -> Util.forceloadAdd(p, c));
             }
         }
     }

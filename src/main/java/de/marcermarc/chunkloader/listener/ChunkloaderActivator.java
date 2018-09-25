@@ -7,6 +7,7 @@ import de.marcermarc.chunkloader.model.Chunkloader;
 import org.bukkit.Material;
 import org.bukkit.block.Beacon;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -120,8 +121,9 @@ public class ChunkloaderActivator implements Listener {
             Chunkloader chunkloader = new Chunkloader(event.getPlayer().getUniqueId(), tier, beacon);
             controller.getWorld(beacon.getWorld()).getLoadedChunks().add(chunkloader);
 
-            chunkloader.getLoadedChunks().parallelStream().forEach(c -> {
+            chunkloader.getLoadedChunks().forEach(c -> {
                 if (!c.isLoaded()) c.load(false);
+                Util.forceloadAdd((Player) event.getPlayer(), c);
             });
 
             event.getPlayer().sendMessage(Messages.getChunkloaderAktivated(chunkloader.getLoadedChunks().size()));

@@ -1,10 +1,9 @@
 package de.marcermarc.chunkloader;
 
 import de.marcermarc.chunkloader.controller.ConfigController;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.World;
+import org.bukkit.*;
 import org.bukkit.block.Beacon;
+import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,5 +56,20 @@ public class Util {
             }
         }
         return tier;
+    }
+
+    public static void forceloadAdd(Player player, Chunk chunk) {
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+                String.format("execute as %s run forceload add %d %d", player.getName(), chunk.getX() * 16, chunk.getZ() * 16));
+    }
+
+    public static void forceloadRemove(Player player, Chunk chunk) {
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+                String.format("execute as %s run forceload remove %d %d", player.getName(), chunk.getX() * 16, chunk.getZ() * 16));
+    }
+
+    public static void forceloadRemoveAll(Player player) {
+        Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(),
+                String.format("execute as %s run forceload remove all", player.getName()));
     }
 }
