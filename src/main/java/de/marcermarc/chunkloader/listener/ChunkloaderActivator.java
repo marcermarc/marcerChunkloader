@@ -98,7 +98,6 @@ public class ChunkloaderActivator implements Listener {
                 hasAllowedItemInBeacon.remove(event.getWhoClicked());
             }
         }
-
     }
 
     /**

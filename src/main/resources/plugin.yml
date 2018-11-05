@@ -1,8 +1,8 @@
 name: marcerChunkloader
-version: 0.2.0-BETA
+version: 1.0.0
 author: marcermarc
 main: de.marcermarc.chunkloader.Main
-api-version: 1.13
+api-version: 1.13.1
 commands:
   marcerChunkloader:
     description: Commands for the Chunkloader
